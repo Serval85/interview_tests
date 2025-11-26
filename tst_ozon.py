@@ -42,8 +42,8 @@ def query(
 
         result.append([event_id, event_name, asset_id, asset_name])
 
-    # Сортируем итоговые записи по полю event_id и возвращаем первые 100 элементов
-    sorted_result = sorted(result, key=lambda x: x[0])[:100]
+    # Сортируем итоговые записи по полю event_id и возвращаем первые lim элементов
+    sorted_result = sorted(result, key=lambda x: x[0])[:lim]
     return sorted_result
 
 
@@ -83,4 +83,5 @@ if __name__ == "__main__":
     lim = 100
     # Запускаем выполнение запроса и выводим результат
     query_result = query(events, assets, lim)
+
     print_results(query_result)
